@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,12 +12,14 @@
                 height: 3000px;
                 transition: 0.5s;
             }
+
             .wrap {
                 background-color: #ddd;
                 height: 50px;
                 width: 100%;
                 position: fixed;
             }
+
             .progressBar {
                 background-color: pink;
                 height: 50px;
@@ -24,16 +27,24 @@
             }
         </style>
     </head>
+
     <body>
         <div class="wrap">
             <div class="progressBar"></div>
         </div>
 
-        <script
-            src="https://code.jquery.com/jquery-3.6.3.min.js"
-            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-            crossorigin="anonymous"
-        ></script>
-        <script></script>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script>
+            let screenH = $("body").height() - $(window).height();
+
+            $(window).scroll(function (e) {
+                let nowH = $(window).scrollTop();
+                let progressBarPercent = (nowH / screenH) * 100
+
+                $(".progressBar").css("width", `${progressBarPercent}%`)
+            })
+        </script>
     </body>
+
 </html>
