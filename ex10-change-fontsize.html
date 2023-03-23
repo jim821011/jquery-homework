@@ -59,6 +59,12 @@
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"
         ></script>
-        <script></script>
+        <script>
+            $(".btn").click(function () {
+                $(this).addClass("active").siblings().removeClass("active")
+
+                $("p").addClass(`font${$(this).text()}`).removeClass(`font${$(this).siblings().text()[0]} font${$(this).siblings().text()[1]}`)
+            });
+        </script>
     </body>
 </html>
