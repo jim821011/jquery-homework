@@ -51,6 +51,10 @@
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"
         ></script>
-        <script></script>
+        <script>
+            $("button").click(function () {
+                $("html, body").stop().animate({ scrollTop: 0 }, 800)
+            })
+        </script>
     </body>
 </html>
