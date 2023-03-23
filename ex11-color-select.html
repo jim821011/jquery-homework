@@ -58,6 +58,10 @@
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"
         ></script>
-        <script></script>
+        <script>
+            $(".color-select").click(function () {
+                $(".color-demo-area").css("background-color", $(this).css("background-color"))
+            })
+        </script>
     </body>
 </html>
