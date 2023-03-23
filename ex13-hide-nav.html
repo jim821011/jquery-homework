@@ -108,6 +108,18 @@
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"
         ></script>
-        <script></script>
+        <script>
+            let navBarPostion = $(".navbar").offset().top;
+
+            $(document).scroll(function () {
+                let nowNavBarPostion = $(".navbar").offset().top;
+                if (nowNavBarPostion < navBarPostion) {
+                    $(".navbar").removeClass("hide_nav")
+                } else {
+                    $(".navbar").addClass("hide_nav")
+                }
+                navBarPostion = nowNavBarPostion;
+            })
+        </script>
     </body>
 </html>
