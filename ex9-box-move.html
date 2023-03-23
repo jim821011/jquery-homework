@@ -67,6 +67,76 @@
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"
         ></script>
-        <script></script>
+        <script>
+            let oneStep = 100;
+
+            $("#right").click(function () {
+                move("right");
+            })
+
+            $("#left").click(function () {
+                move("left");
+            })
+
+            $("#down").click(function () {
+                move("down");
+            })
+
+            $("#up").click(function () {
+                move("up");
+            })
+
+            $(window).keydown(function (e) {
+                if (e.keyCode == 39) {
+                    move("right");
+                }
+                if (e.keyCode == 37) {
+                    move("left");
+                }
+                if (e.keyCode == 40) {
+                    move("down");
+                }
+                if (e.keyCode == 38) {
+                    move("up");
+                }
+            })
+
+            function move(goWhere) {
+                let boxPostion;
+                let startPostion;
+                let stepType;
+                if (goWhere == "right") {
+                    boxPostion = parseInt($(".box").css("right"));
+                    startPostion = "left"
+                    stepType = "+"
+                }
+
+                if (goWhere == "left") {
+                    boxPostion = parseInt($(".box").css("left"));
+                    startPostion = "left"
+                    stepType = "-"
+                }
+
+                if (goWhere == "down") {
+                    boxPostion = parseInt($(".box").css("bottom"));
+                    startPostion = "top"
+                    stepType = "+"
+                }
+
+                if (goWhere == "up") {
+                    boxPostion = parseInt($(".box").css("top"));
+                    startPostion = "top"
+                    stepType = "-"
+                }
+
+                if (boxPostion > 0) {
+                    if (boxPostion - oneStep >= 0) {
+                        $(".box").css(startPostion, `${stepType}=${oneStep}px`)
+                    } else {
+                        $(".box").css(startPostion, `${stepType}=${boxPostion}px`)
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
