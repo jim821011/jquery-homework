@@ -60,6 +60,17 @@
             crossorigin="anonymous"
         ></script>
 
-        <script></script>
+        <script>
+            let navBarTopHeight = $(".nav").offset().top;
+
+            $(window).scroll(function () {
+                let scrollTop = $(window).scrollTop();
+                if (scrollTop >= navBarTopHeight) {
+                    $(".nav").addClass("fixed");
+                } else {
+                    $(".nav").removeClass("fixed");
+                }
+            })
+        </script>
     </body>
 </html>
